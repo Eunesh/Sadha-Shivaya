@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-// import Link from "next/link"
 import { ChevronDown, Heart, Search, ShoppingCart, Star } from "lucide-react"
 
+import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
@@ -76,7 +76,7 @@ const products = [
   },
 ]
 
-export default function ProductListing() {
+export function ProductListing() {
   const [sortOption, setSortOption] = useState("Featured")
   const [searchQuery, setSearchQuery] = useState("")
 
@@ -98,8 +98,8 @@ export default function ProductListing() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
+      <Header/>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold tracking-tight mb-3">Discover Our Collection</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">Best You will find in Nepal</p>

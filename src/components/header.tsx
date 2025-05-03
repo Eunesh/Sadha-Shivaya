@@ -5,12 +5,25 @@ import { Menu, X, Moon, Sun, NotebookIcon as Lotus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useMobile } from "@/hooks/use-mobile"
+import { NavLink } from "react-router";
 
-export function SpiritualHeader() {
+export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [theme, setTheme] = useState<"light" | "dark">("light")
   const isMobile = useMobile()
+
+    // Define the route type
+type RouteItem = {
+  label: string;
+  path: string;
+};
+
+const routes:RouteItem[] = [
+  { label: "Home", path: "/" },
+  { label: "Shop", path: "/shop" },
+  { label: "About", path: "/about" },
+];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,20 +54,20 @@ export function SpiritualHeader() {
               <Lotus
                 className={cn(
                   "h-8 w-8 transition-colors duration-300",
-                  theme === "dark" ? "text-purple-300" : "text-purple-600",
+                  theme === "dark" ? "text-[#2b5003]" : "text-[#2b5003]",
                 )}
               />
               <div
                 className={cn(
                   "absolute -inset-1 rounded-full blur-md opacity-40 animate-pulse",
-                  theme === "dark" ? "bg-purple-400" : "bg-purple-300",
+                  theme === "dark" ? "text-[#2b5003]]" : "text-[#2b5003]]",
                 )}
               ></div>
             </div>
             <span
               className={cn("text-xl font-semibold tracking-wider", theme === "dark" ? "text-white" : "text-slate-800")}
             >
-              Sadha<span className="text-purple-500">Shivaya</span>
+              <span className="text-[#2b5003]">Sadha</span><span className="text-[#2b5003]">Shivaya</span>
             </span>
           </div>
 
@@ -62,18 +75,21 @@ export function SpiritualHeader() {
           <nav
             className={cn("hidden md:flex items-center gap-8", theme === "dark" ? "text-slate-200" : "text-slate-700")}
           >
-            {["Home", "Shop", "About"].map((item) => (
-              <div
-                key={item}
-                // href={`#${item.toLowerCase()}`}
-                className={cn(
-                  "relative text-sm uppercase tracking-wider font-medium transition-colors duration-300 hover:text-purple-500",
-                  "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-purple-500",
-                  "after:transition-all after:duration-300 hover:after:w-full",
-                )}
-              >
-                {item}
-              </div>
+            {routes.map(({ label, path }) => (
+             <NavLink
+             to={path}
+             key={label}
+             className={({ isActive }) =>
+               cn(
+                 "relative text-sm uppercase tracking-wider font-medium transition-colors duration-300 hover:text-green-600",
+                 "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-purple-500",
+                 "after:transition-all after:duration-300 hover:after:w-full",
+                 isActive && "text-green-600"
+               )
+             }
+           >
+             {label}
+           </NavLink>
             ))}
           </nav>
 
@@ -127,15 +143,21 @@ export function SpiritualHeader() {
               "flex flex-col gap-4 transition-all duration-300 animate-in fade-in slide-in-from-top-5",
             )}
           >
-            {["Home", "Practices", "Meditation", "Courses", "About"].map((item) => (
-              <div
-                key={item}
-                // href={`#${item.toLowerCase()}`}
-                className="py-2 px-4 text-center rounded-md hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item}
-              </div>
+            {routes.map(({ label, path }) => (
+              <NavLink
+              to={path}
+              key={label}
+              className={({ isActive }) =>
+                cn(
+                  "py-2 px-4 text-center rounded-md transition-colors",
+                  "hover:bg-purple-100 dark:hover:bg-purple-900/30",
+                  isActive ? "bg-purple-200 dark:bg-purple-800/50 font-semibold" : ""
+                )
+              }
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {label}
+            </NavLink>
             ))}
             <Button className="mt-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600">
               Connect

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Sparkles } from "lucide-react"
+// import { Sparkles } from "lucide-react"
 
 export function ComingSoon() {
   const [animate, setAnimate] = useState(false)
@@ -15,18 +15,18 @@ export function ComingSoon() {
     <div className="relative max-w-6xl mx-auto text-center py-20 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 left-1/4 w-72 h-72 bg-purple-300/20 dark:bg-purple-700/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -top-10 left-1/4 w-72 h-72 bg-green-400/20 dark:bg-green-800/10 rounded-full blur-3xl animate-pulse" />
         <div
-          className="absolute top-20 right-1/4 w-60 h-60 bg-indigo-300/20 dark:bg-indigo-700/10 rounded-full blur-3xl animate-pulse"
+          className="absolute top-20 right-1/4 w-60 h-60 bg-indigo-400/20 dark:bg-indigo-800/10 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
         />
       </div>
 
       {/* Sacred geometry background pattern */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-purple-600 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-purple-600 rounded-full rotate-45" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-purple-600 rounded-full rotate-90" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-green-600 rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-green-600 rounded-full rotate-45" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-green-600 rounded-full rotate-90" />
       </div>
 
       {/* Main content */}
@@ -39,8 +39,10 @@ export function ComingSoon() {
               animate ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10",
             )}
           >
-            <Sparkles className="h-12 w-12 text-purple-500 dark:text-purple-400" />
-            <div className="absolute -inset-2 rounded-full blur-md bg-purple-300/30 dark:bg-purple-500/30 animate-pulse" />
+           <span className="h-28 w-24 text-green-500 dark:text-green-400 text-6xl">
+               🪬
+           </span>
+            <div className="absolute -inset-2 rounded-full blur-md bg-green-300/30 dark:bg-green-500/30 animate-pulse" />
           </div>
         </div>
 
@@ -48,16 +50,16 @@ export function ComingSoon() {
         <h2
           className={cn(
             "text-6xl md:text-8xl font-bold tracking-tight transition-all duration-1000 ease-out",
-            "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500",
+            "text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-indigo-500",
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
           )}
         >
-          Coming Soon
+          Have Patience;
         </h2>
 
         {/* Animated underline */}
         <div
-          className="relative h-1 w-0 mx-auto mt-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full overflow-hidden"
+          className="relative h-1 w-0 mx-auto mt-6 bg-gradient-to-r from-green-500 to-indigo-500 rounded-full overflow-hidden"
           style={{
             width: animate ? "180px" : "0px",
             transition: "width 1.5s ease-out",
@@ -69,18 +71,18 @@ export function ComingSoon() {
         {/* Subtitle */}
         <p
           className={cn(
-            "mt-8 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto transition-all duration-1000 delay-300 ease-out",
+            "mt-8 text-lg md:text-xl text-[#2b5003] dark:text-slate-300 max-w-xl mx-auto transition-all duration-1000 delay-300 ease-out",
             animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
           )}
         >
-          Our journey to mindfulness begins soon. Prepare your spirit for an awakening.
+          We are brewing something for you.
         </p>
 
         {/* Floating elements */}
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-purple-400/20 dark:bg-purple-500/20"
+            className="absolute rounded-full bg-green-400/20 dark:bg-green-500/20"
             style={{
               width: `${Math.random() * 10 + 5}px`,
               height: `${Math.random() * 10 + 5}px`,
