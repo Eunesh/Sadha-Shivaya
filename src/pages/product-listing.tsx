@@ -97,7 +97,7 @@ export function ProductListing() {
   })
 
   return (
-    <div className="bg-white min-h-screen">
+    <div>
       <Header/>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
         <div className="mb-10 text-center">
