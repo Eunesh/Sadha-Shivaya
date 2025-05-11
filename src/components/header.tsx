@@ -42,7 +42,7 @@ const routes:RouteItem[] = [
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md",
-        scrolled ? "bg-white/80 dark:bg-slate-900/80 shadow-md py-3" : "bg-transparent py-5",
+        scrolled ? "bg-gray-100/80 dark:bg-slate-900/80 shadow-md py-3" : "bg-transparent py-5",
         theme === "dark" ? "text-white" : "text-slate-800",
       )}
     >
