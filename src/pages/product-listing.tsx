@@ -1,6 +1,5 @@
-"use client"
-
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { ChevronDown, Heart, Search, ShoppingCart, Star } from "lucide-react"
 
 import { Header } from "@/components/header"
@@ -100,9 +99,10 @@ export function ProductListing() {
     <div>
       <Header/>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
+        {/* Header */}
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold tracking-tight mb-3">Discover Our Collection</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Best You will find in Nepal</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Curated products designed for modern living</p>
         </div>
 
         {/* Search and Filter */}
@@ -146,55 +146,67 @@ export function ProductListing() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
             {sortedProducts.map((product) => (
-              <div key={product.id} className="group">
-                <div className="relative aspect-square mb-4 overflow-hidden rounded-xl bg-muted/30">
-                  <img
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    className="object-cover w-full h-full transition-all duration-300 group-hover:scale-105"
-                  />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-3 right-3 rounded-full bg-white/80 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <Heart className="h-4 w-4" />
-                    <span className="sr-only">Add to wishlist</span>
-                  </Button>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                    {product.category}
-                  </div>
-                  {/* <Link href={`/product/${product.id}`} className="block group-hover:underline">
-                    <h3 className="font-medium text-base">{product.name}</h3>
-                  </Link> */}
-
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-3.5 w-3.5 ${
-                          i < Math.floor(product.rating)
-                            ? "fill-amber-400 text-amber-400"
-                            : i < product.rating
-                              ? "fill-amber-400 text-amber-400 opacity-50"
-                              : "text-muted stroke-muted-foreground fill-transparent"
-                        }`}
-                      />
-                    ))}
-                    <span className="text-xs text-muted-foreground ml-1">({product.rating})</span>
-                  </div>
-
-                  <div className="flex items-center justify-between mt-2">
-                    <div className="font-semibold">${product.price.toFixed(2)}</div>
-                    <Button size="sm" variant="ghost" className="h-8 rounded-full hover:bg-muted/50">
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      Add
+              <div key={product.id} className="group cursor-pointer">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="relative aspect-square mb-4 overflow-hidden rounded-xl bg-muted/30">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      className="object-cover w-full h-full transition-all duration-300 group-hover:scale-105"
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-3 right-3 rounded-full bg-white/80 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        // Add to wishlist functionality
+                      }}
+                    >
+                      <Heart className="h-4 w-4" />
+                      <span className="sr-only">Add to wishlist</span>
                     </Button>
                   </div>
-                </div>
+
+                  <div className="space-y-1">
+                    <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                      {product.category}
+                    </div>
+                    <h3 className="font-medium text-base group-hover:underline">{product.name}</h3>
+
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-3.5 w-3.5 ${
+                            i < Math.floor(product.rating)
+                              ? "fill-amber-400 text-amber-400"
+                              : i < product.rating
+                                ? "fill-amber-400 text-amber-400 opacity-50"
+                                : "text-muted stroke-muted-foreground fill-transparent"
+                          }`}
+                        />
+                      ))}
+                      <span className="text-xs text-muted-foreground ml-1">({product.rating})</span>
+                    </div>
+
+                    <div className="flex items-center justify-between mt-2">
+                      <div className="font-semibold">${product.price.toFixed(2)}</div>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-8 rounded-full hover:bg-muted/50"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          // Add to cart functionality
+                        }}
+                      >
+                        <ShoppingCart className="h-4 w-4 mr-2" />
+                        Add
+                      </Button>
+                    </div>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

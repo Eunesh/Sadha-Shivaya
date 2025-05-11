@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Moon, Sun, NotebookIcon as Lotus } from "lucide-react"
+import { Menu, X, Moon, Sun} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useMobile } from "@/hooks/use-mobile"
@@ -21,8 +21,8 @@ type RouteItem = {
 
 const routes:RouteItem[] = [
   { label: "Home", path: "/" },
-  { label: "Shop", path: "/shop" },
-  { label: "About", path: "/about" },
+  // { label: "Shop", path: "/shop" },
+  // { label: "About", path: "/about" },
 ];
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const routes:RouteItem[] = [
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="relative">
+            {/* <div className="relative">
               <Lotus
                 className={cn(
                   "h-8 w-8 transition-colors duration-300",
@@ -63,7 +63,7 @@ const routes:RouteItem[] = [
                   theme === "dark" ? "text-[#2b5003]]" : "text-[#2b5003]]",
                 )}
               ></div>
-            </div>
+            </div> */}
             <span
               className={cn("text-xl font-semibold tracking-wider", theme === "dark" ? "text-white" : "text-slate-800")}
             >
@@ -111,7 +111,7 @@ const routes:RouteItem[] = [
             </Button>
 
             {/* Contact button */}
-            <Button
+            {/* <Button
               className={cn(
                 "hidden md:flex rounded-full bg-gradient-to-r from-purple-500 to-indigo-500",
                 "hover:from-purple-600 hover:to-indigo-600 text-white shadow-md",
@@ -119,7 +119,7 @@ const routes:RouteItem[] = [
               )}
             >
               Connect
-            </Button>
+            </Button> */}
 
             {/* Mobile menu button */}
             <Button
