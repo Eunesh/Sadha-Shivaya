@@ -7,7 +7,7 @@ export function Home() {
   return (
     <>
       <Header />
-      <main className="pt-24 px-4">
+      <main>
         <BackgroundPaths/>
       {/* <div className="max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl mx-auto text-center">
            <CardSlider />
