@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Maximize2} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from './header'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 
 // Sample images - replace with your own
 const images = [
