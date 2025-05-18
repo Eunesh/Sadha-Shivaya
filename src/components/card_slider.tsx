@@ -6,8 +6,10 @@ import image5 from '../image/IMG_0412.jpeg'
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react"
+import { ChevronLeft, ChevronRight, Maximize2} from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Header } from './header'
+import { NavLink } from 'react-router-dom'
 
 // Sample images - replace with your own
 const images = [
@@ -23,7 +25,8 @@ export default function CardSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(true)
+
 
   // Auto-play functionality
   useEffect(() => {
@@ -99,6 +102,7 @@ export default function CardSlider() {
 
   return (
     <>
+     <Header/>
       {/* Fullscreen overlay */}
       {isFullscreen && (
         <div className="fixed inset-0 z-50 bg-black">
@@ -138,8 +142,14 @@ export default function CardSlider() {
               <span className="sr-only">Next slide</span>
             </Button>
 
+            <NavLink to="/"  className="absolute right-3 top-4 bg-green-500/20 backdrop-blur-md hover:bg-green-500/40 text-green-800 rounded-full w-20 h-12 border border-green-500/30 shadow-lg transition-all duration-300 flex items-center justify-center">
+              Home
+            </NavLink>
+
+            
+
             {/* Fullscreen toggle button */}
-            <Button
+            {/* <Button
               onClick={toggleFullscreen}
               variant="ghost"
               size="icon"
@@ -147,7 +157,7 @@ export default function CardSlider() {
             >
               <Minimize2 className="h-5 w-5 text-white drop-shadow-md" />
               <span className="sr-only">Exit fullscreen</span>
-            </Button>
+            </Button> */}
 
             {/* Indicator dots */}
             <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">

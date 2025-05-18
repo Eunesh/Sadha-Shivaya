@@ -4,26 +4,27 @@ import { useState, useEffect } from "react"
 import { Menu, X, Moon, Sun} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { useMobile } from "@/hooks/use-mobile"
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom"
+// import { useMobile } from "@/hooks/use-mobile"
+// import { NavLink } from "react-router";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [theme, setTheme] = useState<"light" | "dark">("light")
-  const isMobile = useMobile()
+  // const isMobile = useMobile()
 
     // Define the route type
-type RouteItem = {
-  label: string;
-  path: string;
-};
+// type RouteItem = {
+//   label: string;
+//   path: string;
+// };
 
-const routes:RouteItem[] = [
-  { label: "Home", path: "/" },
-  // { label: "Shop", path: "/shop" },
-  // { label: "About", path: "/about" },
-];
+// const routes:RouteItem[] = [
+//   { label: "Home", path: "/" },
+//   { label: "Shop", path: "/shop" },
+//   { label: "About", path: "/about" },
+// ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,7 @@ const routes:RouteItem[] = [
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md",
-        scrolled ? "bg-neutral-500 dark:bg-slate-900/80 shadow-md py-3" : "bg-transparent py-5",
+        scrolled ? "bg-white-500 dark:bg-slate-900/80 shadow-md py-3" : "bg-transparent py-5",
         theme === "dark" ? "text-white" : "text-slate-800",
       )}
     >
@@ -64,15 +65,16 @@ const routes:RouteItem[] = [
                 )}
               ></div>
             </div> */}
-            <span
+            <NavLink
+              to="/"
               className={cn("text-xl font-semibold tracking-wider", theme === "dark" ? "text-white" : "text-slate-800")}
             >
               <span className="text-[#2b5003]">Sadha</span><span className="text-[#2b5003]">Shivaya</span>
-            </span>
+            </NavLink>
           </div>
 
           {/* Desktop Navigation */}
-          <nav
+          {/* <nav
             className={cn("hidden md:flex items-center gap-8", theme === "dark" ? "text-slate-200" : "text-slate-700")}
           >
             {routes.map(({ label, path }) => (
@@ -91,7 +93,7 @@ const routes:RouteItem[] = [
              {label}
            </NavLink>
             ))}
-          </nav>
+          </nav> */}
 
           {/* Right side controls */}
           <div className="flex items-center gap-4">
@@ -135,7 +137,7 @@ const routes:RouteItem[] = [
         </div>
 
         {/* Mobile menu */}
-        {isMobile && mobileMenuOpen && (
+        {/* {isMobile && mobileMenuOpen && (
           <div
             className={cn(
               "absolute top-full left-0 right-0 p-4 shadow-lg",
@@ -163,7 +165,7 @@ const routes:RouteItem[] = [
               Connect
             </Button>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   )
