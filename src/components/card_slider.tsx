@@ -102,7 +102,6 @@ export default function CardSlider() {
 
   return (
     <>
-     <Header/>
       {/* Fullscreen overlay */}
       {isFullscreen && (
         <div className="fixed inset-0 z-50 bg-black">
@@ -142,9 +141,11 @@ export default function CardSlider() {
               <span className="sr-only">Next slide</span>
             </Button>
 
-            <NavLink to="/"  className="absolute right-3 top-4 bg-green-500/20 backdrop-blur-md hover:bg-green-500/40 text-green-800 rounded-full w-20 h-12 border border-green-500/30 shadow-lg transition-all duration-300 flex items-center justify-center">
-              Home
-            </NavLink>
+            {/* <NavLink to="/"  className="absolute left-3 top-4 bg-green-500/20 backdrop-blur-md hover:bg-green-500/40 text-green-800 rounded-full w-30 h-12 border border-green-500/30 shadow-lg transition-all duration-300 flex items-center justify-center">
+              Sadha Shivaya
+            </NavLink> */}
+
+             <Header/>
 
             
 
